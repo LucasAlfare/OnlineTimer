@@ -1,0 +1,4 @@
+/Server-Module/node_modules/
+/Server-Module/package-lock.json
+/.idea/
+/Client-Module/target/
