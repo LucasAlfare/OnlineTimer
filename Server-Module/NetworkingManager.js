@@ -38,7 +38,6 @@ export default class NetworkingManager extends Listenable {
     }
 
     onEvent(event, data) {
-        console.log(`[NETWORKING-MANAGER] Broadcast event received: ${event}. Data: ${data}`);
         this.io.emit(event, data);
     }
 }

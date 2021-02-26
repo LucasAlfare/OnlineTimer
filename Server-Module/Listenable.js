@@ -16,6 +16,7 @@ export default class Listenable {
     }
 
     notifyListeners(event, data) {
+        console.log(`Emitting ${event}...`);
         for (const l of this.listeners) {
             l.onEvent(event, data);
         }

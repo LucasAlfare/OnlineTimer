@@ -38,7 +38,8 @@ export default class UserManager extends Listenable {
             id: user.id,
             started: user.started,
             finished: user.finished,
-            lastTime: user.lastTime
+            lastTime: user.lastTime,
+            scramble: "[scramble]"
         });
     }
 
@@ -51,7 +52,6 @@ export default class UserManager extends Listenable {
     }
 
     onEvent(event, data) {
-        console.log(`[USER-MANAGER] Event received: ${event}. Data: ${data}`);
         if (event === G.EVENT_USER_IN) {
             this.addUser(data);
         } else if (event === G.EVENT_USER_TOGGLE) {

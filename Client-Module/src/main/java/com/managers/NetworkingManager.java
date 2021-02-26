@@ -12,6 +12,13 @@ import static com.G.*;
 public class NetworkingManager implements Listeners.UserListener {
 
     private final ArrayList<Listeners.NetworkingListener> mListeners = new ArrayList<>();
+    private static final String[] EVENTS = {
+            EVENT_USER_IN,
+            EVENT_USER_OUT,
+            EVENT_USER_START,
+            EVENT_USER_START,
+            EVENT_USER_STOP
+    };
 
     public NetworkingManager() {
         init();
@@ -19,17 +26,8 @@ public class NetworkingManager implements Listeners.UserListener {
 
     private void init() {
         Socket socket = IO.socket(URI.create(SERVER_URL));
-
         socket.on(Socket.EVENT_CONNECT, d -> System.out.println("This client is connected to the Node server."));
-
-        socket.on(EVENT_USER_IN, data -> notifyListeners(EVENT_USER_IN, data[0]));
-
-        socket.on(EVENT_USER_OUT, data -> notifyListeners(EVENT_USER_OUT, data[0]));
-
-        socket.on(EVENT_USER_START, data -> notifyListeners(EVENT_USER_START, data[0]));
-
-        socket.on(EVENT_USER_STOP, data -> notifyListeners(EVENT_USER_STOP, data[0]));
-
+        for (String evt : EVENTS) socket.on(evt, data -> notifyListeners(evt, data));
         socket.connect();
     }
 
