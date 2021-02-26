@@ -108,6 +108,9 @@ public class UserManager implements Listeners.NetworkingListener, Listeners.GuiL
     @Override
     public void onGuiEvent(String event, Object... data) {
         // TODO: switch all the desired events that comes from GUI
+        if (event.equals(EVENT_USER_TOGGLE)) {
+            notifyListeners(EVENT_USER_TOGGLE);
+        }
     }
 
     public void addListener(Listeners.UserListener listener) {

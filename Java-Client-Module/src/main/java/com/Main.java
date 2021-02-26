@@ -17,5 +17,7 @@ public class Main {
         um.addListener(gm);
 
         gm.addListener(um);
+
+        gm.start();
     }
 }

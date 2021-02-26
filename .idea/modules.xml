@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Client-Module/Client-Module.iml" filepath="$PROJECT_DIR$/Client-Module/Client-Module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java-Client-Module/Java-Client-Module.iml" filepath="$PROJECT_DIR$/Java-Client-Module/Java-Client-Module.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Timer-Online.iml" filepath="$PROJECT_DIR$/.idea/Timer-Online.iml" />
       <module fileurl="file://$PROJECT_DIR$/Server-Module/server-module.iml" filepath="$PROJECT_DIR$/Server-Module/server-module.iml" />
     </modules>

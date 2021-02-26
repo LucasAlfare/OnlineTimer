@@ -11,6 +11,7 @@ import static com.G.*;
 
 public class NetworkingManager implements Listeners.UserListener {
 
+    protected Socket socket;
     private final ArrayList<Listeners.NetworkingListener> mListeners = new ArrayList<>();
     private static final String[] EVENTS = {
             EVENT_USER_IN,
@@ -25,7 +26,7 @@ public class NetworkingManager implements Listeners.UserListener {
     }
 
     private void init() {
-        Socket socket = IO.socket(URI.create(SERVER_URL));
+        socket = IO.socket(URI.create(SERVER_URL));
         socket.on(Socket.EVENT_CONNECT, d -> System.out.println("This client is connected to the Node server."));
         for (String evt : EVENTS) socket.on(evt, data -> notifyListeners(evt, data));
         socket.connect();
@@ -49,6 +50,8 @@ public class NetworkingManager implements Listeners.UserListener {
 
     @Override
     public void onUserEvent(String event, Object... data) {
-        // TODO...
+        if (event.equals(EVENT_USER_TOGGLE)) {
+            socket.emit(EVENT_USER_TOGGLE, data);
+        }
     }
 }

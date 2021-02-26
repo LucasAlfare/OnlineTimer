@@ -19,10 +19,11 @@ public class G {
     public static final String EVENT_USER_TOGGLE = "EVENT_USER_TOGGLE";
 
     public static ArrayList<String> jsonArrayToList(Object... data) {
-        String raw = (String) data[0];
-        if (!raw.isEmpty()) {
+        //String raw = (String) data[0];
+        final JSONArray jsonArray = (JSONArray) data[0];
+        if (jsonArray != null) {
             try {
-                JSONArray jsonArray = new JSONArray(raw);
+                //JSONArray jsonArray = new JSONArray(raw);
                 ArrayList<String> ids = new ArrayList<>();
                 for (int i = 0; i < jsonArray.length(); i++) {
                     ids.add((String) jsonArray.get(i));
